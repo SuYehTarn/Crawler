@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorder &#8212; Crawler 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Extractor" href="Extractor.html" />
+    <link rel="prev" title="Crawler" href="Crawler.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Recorder">
+<span id="recorder"></span><h1><a class="reference internal" href="#module-Recorder" title="Recorder: This module contains three kinds of recorders: Recorder, WorkingListManager, and JsonRecorder."><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a><a class="headerlink" href="#module-Recorder" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">Recorder.</code><code class="sig-name descname">JsonRecorder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Recorder.Recorder.Recorder</span></code></p>
+<p>The device to record data into a <code class="xref py py-obj docutils literal notranslate"><span class="pre">json</span></code> file.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the json reocrder.</p></li>
+<li><p>path (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The path of the record file. It has the format <code class="docutils literal notranslate"><span class="pre">tmp/{recorderName}.json</span></code>. The direction <code class="docutils literal notranslate"><span class="pre">./tmp</span></code> would be created at the initialization if it is not exists.</p></li>
+<li><p>records (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The dict containing the records.</p></li>
+<li><p>count (<code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>): The number of adding records. It auto increases each time adding a record. Each number would be the key of each record.</p></li>
+</ul>
+<p>Args:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the json recorder.</p></li>
+</ul>
+<p>Raise:</p>
+<ul class="simple">
+<li><p>TypeError: The input name argument is not a string.</p></li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecord</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding a new record. The new record must be a <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>.</p>
+<p>Raise:</p>
+<ul class="simple">
+<li><p>TypeError: The new record is not a <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecords</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding serveral new records.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>newRecords (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> contains new records with any data type.</p></li>
+<li><p>autoSave (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Handle of auto saving.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">outputRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of converting the <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> of records into a json format string.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>: The string converted from the <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code> of records.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking the length of the record list.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>: The length of the record list.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking whether any record exists or not.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if there exists any record, False otherwise.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of saving the records as a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">Recorder.</code><code class="sig-name descname">Recorder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The device to record data into a file. The records are saved as a plain text file. The name of the record file is the same as the name of the recorder.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the recorder.</p></li>
+<li><p>path (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The path of the record file. It has the format <code class="docutils literal notranslate"><span class="pre">tmp/{recorderName}.txt</span></code>. The direction <code class="docutils literal notranslate"><span class="pre">./tmp</span></code> would be created at the initialization if it is not exists.</p></li>
+<li><p>records (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of records.</p></li>
+</ul>
+<p>Args:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the recorder.</p></li>
+</ul>
+<p>Raise:</p>
+<ul class="simple">
+<li><p>TypeError: The input name argument is not a string.</p></li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecord</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding a new record. A new record would be added into the list <code class="docutils literal notranslate"><span class="pre">records</span></code>, and auto saving the records if the <code class="docutils literal notranslate"><span class="pre">autoSave</span></code> argument is set <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>newRecord (<code class="xref py py-obj docutils literal notranslate"><span class="pre">object</span></code>): The new record with any data type.</p></li>
+<li><p>autoSave (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Handle of auto saving.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecords</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding serveral new records.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>newRecords (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> contains new records with any data type.</p></li>
+<li><p>autoSave (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Handle of auto saving.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">outputRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of formatting the records as a string to write into a file. It would convert each record into a string presentation, and join all record with <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+<p>Return:</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>: The <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> joined string presentation of all records.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking the length of the record list.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>: The length of the record list.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking whether any record exists or not.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if there exists any record, False otherwise.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of saving the records as a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">Recorder.</code><code class="sig-name descname">WorkingListManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workingList</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Recorder.Recorder.Recorder</span></code></p>
+<p>The device to manage the adding and getting of works and to make a record.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the working list manager. The default name is <code class="docutils literal notranslate"><span class="pre">wokingList</span></code>.</p></li>
+<li><p>path (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The file path of the working list.</p></li>
+<li><p>records (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of works.</p></li>
+<li><p>done (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of processed works.</p></li>
+<li><p>donePath (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The file path of the processed work list.</p></li>
+</ul>
+<p>Args:</p>
+<ul class="simple">
+<li><p>workingList (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of url string.</p></li>
+</ul>
+<p>Raise:</p>
+<ul class="simple">
+<li><p>TypeError: The input argument is not a list or a deque of strings.</p></li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecord</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecord</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding a work as a new record. A record would not be added into the working list again if it has been added before.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>newRecord (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): A url string as a new work.</p></li>
+<li><p>autoSave (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): A boolean value handling auto saving. The default value is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addRecords</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">newRecords</span></em>, <em class="sig-param"><span class="n">autoSave</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding serveral new records.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>newRecords (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code> contains new records with any data type.</p></li>
+<li><p>autoSave (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Handle of auto saving.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addWork</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">work</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding a work into the working list.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>work (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): A url string as a new work.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addWorks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">works</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding serveral works into the working list.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>works (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of url strings as new works.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">getWork</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of getting a work from the work list.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p>work (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The first element of the working list.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">outputRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of formatting the records as a string to write into a file. It would convert each record into a string presentation, and join all record with <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+<p>Return:</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>: The <code class="docutils literal notranslate"><span class="pre">'\n'</span></code> joined string presentation of all records.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking the length of the record list.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>: The length of the record list.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">recordExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking whether any record exists or not.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if there exists any record, False otherwise.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">remainedAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of getting the remained work amount.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code>: The amount of works in the working list.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of saving the working list and done list.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">workExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of checking the existence of work in working list.</p>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>: <code class="docutils literal notranslate"><span class="pre">True</span></code> if work exists in the working list, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Crawler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Crawler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extractor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="UrlMatcher.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestCases.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Crawler.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a></li>
+      <li>Next: <a href="Extractor.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Su, Yeh-Tarn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Recorder.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

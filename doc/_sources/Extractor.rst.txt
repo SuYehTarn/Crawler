@@ -1,0 +1,8 @@
+:mod:`Extractor`
+================
+
+.. automodule:: Extractor
+   :members:
+   :noindex:
+   :inherited-members:
+   :show-inheritance:

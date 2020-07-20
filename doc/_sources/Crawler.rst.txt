@@ -1,0 +1,8 @@
+:mod:`Crawler`
+==============
+
+.. automodule:: Crawler
+   :members:
+   :noindex:
+   :inherited-members:
+   :show-inheritance:

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extractor &#8212; Crawler 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="UrlMatcher" href="UrlMatcher.html" />
+    <link rel="prev" title="Recorder" href="Recorder.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Extractor">
+<span id="extractor"></span><h1><a class="reference internal" href="#module-Extractor" title="Extractor: This module contains the Extractor."><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a><a class="headerlink" href="#module-Extractor" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">Extractor.</code><code class="sig-name descname">Extractor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The web page data extracting device for the <a class="reference internal" href="Crawler.html#module-Crawler" title="Crawler: This module contains the Crawler servering the main function."><code class="xref py py-obj docutils literal notranslate"><span class="pre">Crawler</span></code></a>. User has to create a new extractor inheriting this class, and define the extracting method. Please read the example below.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>JesonRecorder (<code class="xref py py-obj docutils literal notranslate"><span class="pre">JsonRecorder</span></code>): The json recorder recording the data into a json file.</p></li>
+</ul>
+<p>Args:</p>
+<ul class="simple">
+<li><p>name (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name of the extractor.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">myExtractor</span><span class="p">(</span><span class="n">Extractor</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">bs</span><span class="p">):</span>     <span class="c1"># The input arguments of an extracting method must include the url and bs.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">url</span>                  <span class="c1"># User can defined the method of extracting specific data.</span>
+        <span class="n">msg</span>  <span class="o">=</span> <span class="s1">&#39;&#39;</span>                   <span class="c1"># User can defined the additional returning information or remained as an empty string.</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">msg</span>            <span class="c1"># User can ignore to control the possible exceptions, the ``Extractor.get`` decorator would pass and inform if an exception occurs.</span>
+
+    <span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">bs</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bs</span><span class="o">.</span><span class="n">head</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>      <span class="c1"># The method could be multiple lines</span>
+        <span class="n">msg</span>  <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">msg</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of running all the extractor’s extracting method, which has a name starting with <code class="docutils literal notranslate"><span class="pre">get_</span></code>. After extracting all attempted data, each attribute name and extracted data would become a key-value pair and consist a dict. The dict would be added as a record into the json recorder and be written into the record file.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>url (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The url string of the web page.</p></li>
+<li><p>bs (<code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>): The <code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> object of the web page.</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>: The messages returned from each data extracting method joined with <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">extractFunc</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The decorator to decorate user-defined extracting method. It would wrap the input method with a <code class="docutils literal notranslate"><span class="pre">try...except</span></code> structure, and return the attempted data and message. If no exception raised, the return message would combine the returned message of the input method and the default message, which has a format <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">{attribute</span> <span class="pre">name}:</span> <span class="pre">{data}</span></code>, with a <code class="docutils literal notranslate"><span class="pre">'\n'</span></code>.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>extractFunc (<code class="xref py py-obj docutils literal notranslate"><span class="pre">method</span></code>): The user-defined extracting method.</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">method</span></code>: The decorated method if the argument is a method.</p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>: None if the argument is not a method.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Crawler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Crawler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Recorder.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="UrlMatcher.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestCases.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Recorder.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+      <li>Next: <a href="UrlMatcher.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Su, Yeh-Tarn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Extractor.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

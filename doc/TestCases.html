@@ -1,0 +1,563 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestCases &#8212; Crawler 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="UrlMatcher" href="UrlMatcher.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-TestCases">
+<span id="testcases"></span><h1><a class="reference internal" href="#module-TestCases" title="TestCases: This module contains the unit test Cases."><code class="xref py py-mod docutils literal notranslate"><span class="pre">TestCases</span></code></a><a class="headerlink" href="#module-TestCases" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestCrawler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>Crawler</cite>.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>testUrls (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of urls for testing, containing three urls from <code class="docutils literal notranslate"><span class="pre">http://www.pythonscraping.com</span></code>.</p></li>
+<li><p>paths (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of paths of files created during the test.</p></li>
+</ul>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-name descname">Extractor_1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The testing extractor 1.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_title</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting the title from a web page.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-name descname">Extractor_2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The testing extractor 2.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_classIsBody</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting the text of the tag having a class of <cite>body</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_fakeLatin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting the text of the tag having the id of <cite>fakeLatin</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-name descname">Extractor_3</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The testing extractor 3.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_gift1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting the text of the tag having the id of <cite>gift1</cite>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-name descname">Extractor_4</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The testing extractor 4.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">get_giftTitles</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting the text in each column of the tag having the id of <cite>giftList</cite>. It specifies the third testing url.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+<ul class="simple">
+<li><p>Directing the standard output to a <code class="xref py py-obj docutils literal notranslate"><span class="pre">io.StringIO</span></code> object.</p></li>
+<li><p>Checking the files assumed be created during test not exist before each test.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<ul class="simple">
+<li><p>Redirecting the standard output.</p></li>
+<li><p>Removing the files created during esch test.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_addNewWorks</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the method of adding new works.</p>
+<ol class="arabic simple">
+<li><p>Adding new works from a html document.</p></li>
+<li><p>Adding new work from a html document after getting a work for the working list.</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the setting of attributes.</p>
+<ol class="arabic simple">
+<li><p>Test default attributes.</p></li>
+<li><p>Test user-defined attributes. All arguments are different from the default settings.</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the <code class="docutils literal notranslate"><span class="pre">crawl</span></code> method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_extendWorkingList</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the method of extending the working list.</p>
+<ol class="arabic simple">
+<li><p>Test extending an empty working list.</p></li>
+<li><p>Test extending a none empty working list.</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_extract1</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The testing method of extracting a string from a web page. In this case, all the targets of the extractors exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_extract2</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The testing method of extracting a string and a list of items from a web page. In this case, all the targets of the extractors exist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_extract3</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The testing method of extracting with serveral extractors. In this case, some targets of the extractors do not extist.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_getPageBs</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the method of getting the <code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> object from a web page.</p>
+<ol class="arabic simple">
+<li><p>Test getting page bs object from an available page</p></li>
+<li><p>Test getting page bs object from an unavailable page</p></li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_printInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the :obj:<code class="docutils literal notranslate"><span class="pre">printInfo</span></code> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_saveLog</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the method of saving logs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_setUrlPattern</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test setting url patterns for a crawler already be initialized</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestExtractor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>Extractor</cite>.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>html (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The html string for testing.</p></li>
+<li><p>bs (<code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>): The <code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> object retained from parsing the testing html string.</p></li>
+<li><p>url (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The url string for testing.</p></li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+<ul class="simple">
+<li><p>Directing the standard output to a <code class="xref py py-obj docutils literal notranslate"><span class="pre">io.StringIO</span></code> object.</p></li>
+<li><p>Checking the file assumed be created during test not exist before each test.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<ul class="simple">
+<li><p>Redirecting the standard output.</p></li>
+<li><p>Removing the file created during esch test.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes2</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the setting of attributes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Test the decorated method <code class="docutils literal notranslate"><span class="pre">get</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestJsonRecorder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>Recorder.JsonRecorder</cite>.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>testName (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The name used to build a <code class="docutils literal notranslate"><span class="pre">JsonRecorder</span></code> during the test.</p></li>
+<li><p>testPath (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The path assumed the record file created on.</p></li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<ul class="simple">
+<li><p>Removing files created during testing</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_addRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of adding a record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the attribute setting after initialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_outputRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of converting the records into an output string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of saving the records.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestRecorder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>Recorder.Reocrder</cite>.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<ul class="simple">
+<li><p>Remove the record file after each test</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the attribute setting after initialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_outputRecord</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of converting the records into an output string.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_record</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the record adding method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of checking the amount of record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordAutoSaveAfterRecordWithoutAutoSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the record adding method after exercising an adding method without auto saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the method of checking the existence of record.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordWithoutAutoSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the record adding method without auto saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordWithoutAutoSaveAfterRecordAutoSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the record adding method without auto saving after exercising an adding method with auto saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_records</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the mutiple record adding method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_recordsWithoutAutoSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the mutiple records adding method without auto saving.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the saving method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestUrlMatcher</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>UrlMatcher</cite>.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the attributes setting after initialization.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_isIncluded</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the <code class="docutils literal notranslate"><span class="pre">isIncluded()</span></code> method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">TestCases.</code><code class="sig-name descname">TestWorkingListManager</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The test case of the module <cite>Recorder.WorkinListManager</cite>.</p>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+<ul class="simple">
+<li><p>Direct the standard output to a <code class="xref py py-obj docutils literal notranslate"><span class="pre">stringIO</span></code> object.</p></li>
+<li><p>Checking record files not exists before testing.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Hook method for deconstructing the test fixture after testing it.</p>
+<ul class="simple">
+<li><p>Redirecting the stdout.</p></li>
+<li><p>Removing files created during testing</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_addWork</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing method of adding a work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_addWorks</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing method of adding multiple works.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_attributes</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing the attribute setting after initialization.</p>
+<ul class="simple">
+<li><p>Case 1: Default attributes.</p></li>
+<li><p>Case 2: Initializing with a list.</p></li>
+<li><p>Case 3: Initializing with a deque.</p></li>
+<li><p>Case 4: Raising a TypeError if not initializing with a list or a deque.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_getWork</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing method of getting a work.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_remainedAmount</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing method of checking the amount of works.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_save</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing saving method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">test_workExists</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Testing method of checking the existence of work.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Crawler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Crawler.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Recorder.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extractor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="UrlMatcher.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="UrlMatcher.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Su, Yeh-Tarn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/TestCases.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

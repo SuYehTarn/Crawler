@@ -1,0 +1,8 @@
+:mod:`UrlMatcher`
+=================
+
+.. automodule:: UrlMatcher
+   :members:
+   :noindex:
+   :inherited-members:
+   :show-inheritance:

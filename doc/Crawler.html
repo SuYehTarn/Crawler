@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crawler &#8212; Crawler 0.0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Recorder" href="Recorder.html" />
+    <link rel="prev" title="Welcome to Crawler’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-Crawler">
+<span id="crawler"></span><h1><a class="reference internal" href="#module-Crawler" title="Crawler: This module contains the Crawler servering the main function."><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a><a class="headerlink" href="#module-Crawler" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">Crawler.</code><code class="sig-name descname">Crawler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workingList</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scheme_pattern</span><span class="o">=</span><span class="default_value">'http|https'</span></em>, <em class="sig-param"><span class="n">domain_pattern</span><span class="o">=</span><span class="default_value">'.*'</span></em>, <em class="sig-param"><span class="n">path_pattern</span><span class="o">=</span><span class="default_value">'.*'</span></em>, <em class="sig-param"><span class="n">extractors</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">autoAddInternalLinks</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>The main class of the crawler.</p>
+<p>It combines a working list manager, a url matcher, and one or mutiple extractors.</p>
+<p>Attributes:</p>
+<ul class="simple">
+<li><p>WLM (<code class="xref py py-obj docutils literal notranslate"><span class="pre">WorkingListManager</span></code>): The working list manager handling the working list during crawling.</p></li>
+<li><p>UM (<a class="reference internal" href="UrlMatcher.html#module-UrlMatcher" title="UrlMatcher: This module contains the url matcher."><code class="xref py py-obj docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a>): The url matcher to match links in each page with patterns specified by the initialization arguments.</p></li>
+<li><p>extractors (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of user defined extractors used to extract data from each web request.</p></li>
+<li><p>autoAddInternalLinks (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Handle auto adding links matched the specified scheme, domain, path pattern.</p></li>
+<li><p>curUrl (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): Record the current page url for each request of web page.</p></li>
+<li><p>startTime (<code class="xref py py-obj docutils literal notranslate"><span class="pre">float</span></code>): Record the start time of crawling.</p></li>
+<li><p>log (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): The list of information returned during crawling.</p></li>
+<li><p>logPath (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The path of log file. Default is <cite>./tmp/log.txt</cite>.</p></li>
+</ul>
+<p>Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>workingList (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of url strings. Default is an empty list.</p></li>
+<li><p>scheme_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url scheme. For example, http, https, etc. Default is <code class="docutils literal notranslate"><span class="pre">r'http|https'</span></code>.</p></li>
+<li><p>domain_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url domain. Default is <code class="docutils literal notranslate"><span class="pre">r'.*'</span></code>.</p></li>
+<li><p>path_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url path. Default is <code class="docutils literal notranslate"><span class="pre">r'.*'</span></code>.</p></li>
+<li><p>extractors (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of user defined extractors used to extract data from each web request. Default is an empty list.</p></li>
+<li><p>autoAddInternalLinks (<code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code>): Whether auto adding links matched the specified scheme, domain, path pattern or not. Default is True.</p></li>
+</ul>
+</div></blockquote>
+<p>Raise:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>TypeError</dt><dd><ul>
+<li><p><cite>workingList</cite>: The <cite>workingList</cite> argument is defined and not a list, or some elements of the list are not strings.</p></li>
+<li><p><cite>extractors</cite>: The <cite>extractors</cite> argument is defined and not a list, or some elements of the list are not extractors.</p></li>
+<li><p><cite>scheme_pattern</cite>: The <cite>scheme_pattern</cite> argument is defined and not a string.</p></li>
+<li><p><cite>domain_pattern</cite>: The <cite>domain_pattern</cite> argument is defined and not a string.</p></li>
+<li><p><cite>path_pattern</cite>: The <cite>path_pattern</cite> argument is defined and not a string.</p></li>
+<li><p><cite>autoAddInternalLinks</cite>: The <cite>autoAddInternalLinks</cite> argument is defined and not a bool value.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addExtractors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">extractors</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding extractors.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>extractors (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of extractors.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">addNewWorks</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of adding new works.</p>
+<p>It works when the class attribute <cite>autoAddInternalLinks</cite> is set True.</p>
+<p>User can overwrite this method to defined the added links.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>url (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The url string of the corresponding web page.</p></li>
+<li><p>bs (<code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>) The BeautifulSoup object of the corresponding web page.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">crawl</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The main method of crawling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">extendWorkingList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workingList</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extending working list.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>workingList (<code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code>): A list of url strings.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">bs</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of extracting data from BeartifulSoup object and corresponding url.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>url (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The url string of the corresponding web page.</p></li>
+<li><p>bs (<code class="xref py py-obj docutils literal notranslate"><span class="pre">BeautifulSoup</span></code>) The BeautifulSoup object of the corresponding web page.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">getPageBs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">url</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of getting a BeautifulSoup object of a web page.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>url (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The url string of the attempted web page.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">printInfo</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">extractInfo</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of printing and recording information during crawling.</p>
+<p>The information includes the extracting result return from the extractors and the remained work amount.</p>
+<p>The record path is <code class="docutils literal notranslate"><span class="pre">./tmp/log.txt</span></code> by default.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>extractInfo (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The extracting information returned from the extractors.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">saveLog</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>The method of saving logs.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">setUrlPattern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">scheme_pattern</span><span class="o">=</span><span class="default_value">'http|https'</span></em>, <em class="sig-param"><span class="n">domain_pattern</span><span class="o">=</span><span class="default_value">'.*'</span></em>, <em class="sig-param"><span class="n">path_pattern</span><span class="o">=</span><span class="default_value">'.*'</span></em><span class="sig-paren">)</span></dt>
+<dd><p>The method of setting patterns for url matcher.</p>
+<p>Args:</p>
+<ul class="simple">
+<li><p>scheme_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url scheme. For example, http, https, etc. Default is <code class="docutils literal notranslate"><span class="pre">r'http|https'</span></code>.</p></li>
+<li><p>domain_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url domain. Default is <code class="docutils literal notranslate"><span class="pre">r'.*'</span></code>.</p></li>
+<li><p>path_pattern (<code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code>): The regular expression string of url path. Default is <code class="docutils literal notranslate"><span class="pre">r'.*'</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Crawler</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Crawler</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Recorder.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Extractor.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Extractor</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="UrlMatcher.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">UrlMatcher</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="TestCases.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Crawler’s documentation!</a></li>
+      <li>Next: <a href="Recorder.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Recorder</span></code></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Su, Yeh-Tarn.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.1.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Crawler.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
